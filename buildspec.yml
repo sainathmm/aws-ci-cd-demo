@@ -1,0 +1,23 @@
+
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+    commands:
+      - echo "Installing Python packages"
+
+  pre_build:
+    commands:
+      - pip install -r requirements.txt
+
+  build:
+    commands:
+      - echo "Building Docker image"
+      - docker build -t sample-python-flask-app:latest .
+
+  post_build:
+    commands:
+      - echo "Build completed successfully"
+
